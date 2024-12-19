@@ -1,6 +1,42 @@
+<!DOCTYPE html>
 <html>
 <head>
     <link rel="stylesheet" href="styles1.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const form = document.getElementById("tarif-formu");
+            const tarifListesi = document.createElement("div");
+            tarifListesi.id = "tarif-listesi";
+            document.body.appendChild(tarifListesi);
+
+            form.addEventListener("submit", function(event) {
+                event.preventDefault();
+
+                const tarifAdi = document.getElementById("tarif-adi").value;
+                const kategori = document.getElementById("kategori").value;
+                const tarifAciklama = document.getElementById("tarif-aciklama").value;
+
+             
+                const yeniTarif = document.createElement("div");
+                yeniTarif.classList.add("tarif");
+
+                const tarifHTML = `
+                    <h3>${tarifAdi}</h3>
+                    <p><strong>Kategori:</strong> ${kategori}</p>
+                    <p><strong>Açıklama:</strong> ${tarifAciklama}</p>
+                    <hr>
+                `;
+
+                yeniTarif.innerHTML = tarifHTML;
+
+            
+                tarifListesi.appendChild(yeniTarif);
+
+                
+                form.reset();
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -11,29 +47,28 @@
             <a href="sayfa3.html">Sayfa 3</a>
             <a href="sayfa4.html">Sayfa 4</a>
         </nav>
-   <main>
-    <section id="tarif-ekle">
-        <h2>Tarifinizi Paylaşın</h2>
-        <form id="tarif-formu">
-            <label for="tarif-adi">Tarif Adı:</label>
-            <input type="text" id="tarif-adi" name="tarif-adi" required>
+    </header>
+    <main>
+        <section id="tarif-ekle">
+            <h2>Tarifinizi Paylaşın</h2>
+            <form id="tarif-formu">
+                <label for="tarif-adi">Tarif Adı:</label>
+                <input type="text" id="tarif-adi" name="tarif-adi" required>
 
-            <label for="kategori">Kategori:</label>
-            <select id="kategori" name="kategori">
-                <option value="ana-yemek">Ana Yemek</option>
-                <option value="tatli">Tatlı</option>
-                <option value="aperatif">Aperatif</option>
-                <option value="corbalar">Çorbalar</option>
-            </select>
+                <label for="kategori">Kategori:</label>
+                <select id="kategori" name="kategori">
+                    <option value="ana-yemek">Ana Yemek</option>
+                    <option value="tatli">Tatlı</option>
+                    <option value="aperatif">Aperatif</option>
+                    <option value="corbalar">Çorbalar</option>
+                </select>
 
-            <label for="tarif-aciklama">Tarif Açıklaması:</label>
-            <textarea id="tarif-aciklama" name="tarif-aciklama" rows="4" required></textarea>
+                <label for="tarif-aciklama">Tarif Açıklaması:</label>
+                <textarea id="tarif-aciklama" name="tarif-aciklama" rows="4" required></textarea>
 
-            <button type="submit">Tarifi Ekle</button>
-        </form>
-    </section>
-   </main>
-
+                <button type="submit">Tarifi Ekle</button>
+            </form>
+        </section>
+    </main>
 </body>
-
 </html>

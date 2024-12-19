@@ -1,6 +1,36 @@
 <html>
 <head>
     <link rel="stylesheet" href="styles1.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const bilgiler = {
+                "Ana Yemek": "Ana yemekler doyurucu ve genelde ana öğün olarak tercih edilen yemeklerdir. Örnekler: Kebap, makarna, pilav.",
+                "Tatlı": "Tatlılar yemek sonrası keyif için tüketilen, şekerli lezzetlerdir. Örnekler: Baklava, sütlaç, pasta.",
+                "Aperatif": "Aperatifler hafif atıştırmalık olarak tüketilir. Örnekler: Patates kızartması, bruschetta, kanepe.",
+                "Çorbalar": "Çorbalar genelde öğün başlangıcı olarak servis edilen sıvı yiyeceklerdir. Örnekler: Mercimek çorbası, domates çorbası."
+            };
+
+            document.querySelectorAll("#kategoriler ul li a").forEach(function (link) {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault(); 
+                    const kategori = this.textContent;
+                    const bilgi = bilgiler[kategori] || "Bu kategori hakkında bilgi mevcut değil.";
+
+                    let bilgiKutusu = document.getElementById("bilgiKutusu");
+                    if (!bilgiKutusu) {
+                        bilgiKutusu = document.createElement("div");
+                        bilgiKutusu.id = "bilgiKutusu";
+                        bilgiKutusu.style.marginTop = "20px";
+                        bilgiKutusu.style.padding = "10px";
+                        bilgiKutusu.style.border = "1px solid #ccc";
+                        bilgiKutusu.style.backgroundColor = "#f9f9f9";
+                        document.body.appendChild(bilgiKutusu);
+                    }
+                    bilgiKutusu.textContent = bilgi;
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <header>
@@ -22,7 +52,5 @@
         </ul>
     </section>
    </main>
-
 </body>
-
 </html>
