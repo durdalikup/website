@@ -1,0 +1,39 @@
+<html>
+<head>
+    <link rel="stylesheet" href="styles1.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="index.html">Ana Sayfa</a>
+            <a href="sayfa1.html">Popüler Tarifler</a>
+            <a href="sayfa2.html">Sayfa 2</a>
+            <a href="sayfa3.html">Sayfa 3</a>
+            <a href="sayfa4.html">Sayfa 4</a>
+        </nav>
+   <main>
+    <section id="tarif-ekle">
+        <h2>Tarifinizi Paylaşın</h2>
+        <form id="tarif-formu">
+            <label for="tarif-adi">Tarif Adı:</label>
+            <input type="text" id="tarif-adi" name="tarif-adi" required>
+
+            <label for="kategori">Kategori:</label>
+            <select id="kategori" name="kategori">
+                <option value="ana-yemek">Ana Yemek</option>
+                <option value="tatli">Tatlı</option>
+                <option value="aperatif">Aperatif</option>
+                <option value="corbalar">Çorbalar</option>
+            </select>
+
+            <label for="tarif-aciklama">Tarif Açıklaması:</label>
+            <textarea id="tarif-aciklama" name="tarif-aciklama" rows="4" required></textarea>
+
+            <button type="submit">Tarifi Ekle</button>
+        </form>
+    </section>
+   </main>
+
+</body>
+
+</html>
